@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roti Box - Ghar Jaisa Khana, Delivered Fresh Daily</title>
+    <meta name="description" content="Fresh, home-cooked Indian meals delivered daily. Experience authentic flavors with Roti Box tiffin service.">
+    <meta name="theme-color" content="#FF6B35">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-color-scheme="dark">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <div class="logo-placeholder">🍱</div>
+                    <h2>Roti Box</h2>
+                </div>
+                <nav class="nav" id="nav">
+                    <ul class="nav__list">
+                        <li><a href="#home" class="nav__link">Home</a></li>
+                        <li><a href="#menu" class="nav__link">Menu</a></li>
+                        <li><a href="#services" class="nav__link">Services</a></li>
+                        <li><a href="#about" class="nav__link">About</a></li>
+                        <li><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header__actions">
+                    <button class="btn btn--outline login-btn" onclick="openLoginModal()">Login</button>
+                    <button class="btn btn--primary order-btn" onclick="orderNow()">Order Now</button>
+                </div>
+                <button class="header__menu-btn" id="menuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div class="modal login-modal hidden" id="loginModal">
+        <div class="modal__backdrop" onclick="closeLoginModal()"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2>Welcome Back</h2>
+                <button class="modal__close" onclick="closeLoginModal()">×</button>
+            </div>
+            <div class="modal__body">
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label" for="loginEmail">Email or Phone</label>
+                        <input type="text" id="loginEmail" class="form-control" required placeholder="your.email@example.com or +91 XXXXX XXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" required placeholder="Enter your password">
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width login-submit-btn">Login</button>
+                </form>
+                <div class="login-divider">
+                    <span>or</span>
+                </div>
+                <div class="social-login">
+                    <button class="btn btn--outline btn--full-width social-btn" onclick="socialLogin('google')">
+                        <span class="social-icon">🔍</span>
+                        Login with Google
+                    </button>
+                    <button class="btn btn--outline btn--full-width social-btn" onclick="socialLogin('facebook')">
+                        <span class="social-icon">📘</span>
+                        Login with Facebook
+                    </button>
+                </div>
+                <div class="login-footer">
+                    <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+                    <span>•</span>
+                    <a href="#" onclick="openSignupModal()">Create Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <h1 class="hero__title">Ghar Jaisa Khana, Delivered Fresh Daily</h1>
+                    <p class="hero__description">Experience the warmth of home-cooked Indian meals delivered right to your doorstep. Fresh, healthy, aur bilkul ghar jaisa taste - just like mom's cooking!</p>
+                    <div class="hero__buttons">
+                        <button class="btn btn--primary btn--lg" onclick="scrollToSection('services')">View Plans</button>
+                        <button class="btn btn--outline btn--lg" onclick="callNow()">📞 Call Now</button>
+                    </div>
+                    <div class="hero__stats">
+                        <div class="stat">
+                            <span class="stat__number">1000+</span>
+                            <span class="stat__label">Happy Customers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">5000+</span>
+                            <span class="stat__label">Meals Delivered</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">4.8⭐</span>
+                            <span class="stat__label">Customer Rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <div class="hero__image-placeholder">
+                        <span class="hero__image-icon">🍛</span>
+                        <p>Fresh Daily Tiffin</p>
+                        <div class="floating-items">
+                            <span class="floating-item">🥘</span>
+                            <span class="floating-item">🫓</span>
+                            <span class="floating-item">🍚</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>हम आपकी हर जरूरत के लिए अलग-अलग meal services प्रदान करते हैं</p>
+            </div>
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-card__icon">🍽️</div>
+                    <h3>Daily Lunch</h3>
+                    <p>Fresh, hot meals delivered daily to your doorstep</p>
+                    <div class="service-card__price">₹150-200</div>
+                    <ul class="service-features">
+                        <li>Home-style cooking</li>
+                        <li>Fresh ingredients</li>
+                        <li>On-time delivery</li>
+                    </ul>
+                </div>
+                <div class="service-card service-card--popular">
+                    <div class="service-card__badge">Most Popular</div>
+                    <div class="service-card__icon">📅</div>
+                    <h3>Weekly Plan</h3>
+                    <p>7-day meal subscription with variety</p>
+                    <div class="service-card__price">₹1000-1400</div>
+                    <ul class="service-features">
+                        <li>Menu variety</li>
+                        <li>Cost effective</li>
+                        <li>Flexible timing</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🗓️</div>
+                    <h3>Monthly Plan</h3>
+                    <p>Complete monthly meal solution</p>
+                    <div class="service-card__price">₹3500-4500</div>
+                    <ul class="service-features">
+                        <li>Best value</li>
+                        <li>Priority delivery</li>
+                        <li>Custom menu</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🏢</div>
+                    <h3>Corporate Catering</h3>
+                    <p>Bulk orders for offices and events</p>
+                    <div class="service-card__price">₹120-180</div>
+                    <ul class="service-features">
+                        <li>Bulk discount</li>
+                        <li>Event catering</li>
+                        <li>Professional service</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Menu Showcase</h2>
+                <p>Taste the authentic flavors of home-cooked Indian cuisine</p>
+            </div>
+            <div class="menu__grid">
+                <div class="menu-card">
+                    <div class="menu-card__image">
+                        <span class="menu-card__icon">🍛</span>
+                    </div>
+                    <div class="menu-card__content">
+                        <h3>Dal Rice Combo</h3>
+                        <p>Yellow dal, steamed rice, seasonal vegetable, pickle, and papad</p>
+                        <div class="menu-card__price">₹150</div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card__image">
+                        <span class="menu-card__icon">🍚</span>
+                    </div>
+                    <div class="menu-card__content">
+                        <h3>Rajma Chawal</h3>
+                        <p>Kidney bean curry with basmati rice and fresh salad</p>
+                        <div class="menu-card__price">₹170</div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card__image">
+                        <span class="menu-card__icon">🫓</span>
+                    </div>
+                    <div class="menu-card__content">
+                        <h3>Chole Bhature</h3>
+                        <p>Spicy chickpea curry with fluffy bhature and onions</p>
+                        <div class="menu-card__price">₹180</div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card__image">
+                        <span class="menu-card__icon">🥘</span>
+                    </div>
+                    <div class="menu-card__content">
+                        <h3>South Indian Thali</h3>
+                        <p>Sambar, rasam, rice, vegetable curry, and coconut chutney</p>
+                        <div class="menu-card__price">₹160</div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card__image">
+                        <span class="menu-card__icon">🍽️</span>
+                    </div>
+                    <div class="menu-card__content">
+                        <h3>Gujarati Thali</h3>
+                        <p>Traditional Gujarati dishes with dhokla and sweet</p>
+                        <div class="menu-card__price">₹190</div>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card__image">
+                        <span class="menu-card__icon">🍖</span>
+                    </div>
+                    <div class="menu-card__content">
+                        <h3>Hyderabadi Biryani</h3>
+                        <p>Aromatic basmati rice with tender meat and spices</p>
+                        <div class="menu-card__price">₹220</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="about" class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Roti Box?</h2>
+                <p>Discover what makes us the best tiffin service in your city</p>
+            </div>
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">🏠</div>
+                    <h3>Home-Style Cooking</h3>
+                    <p>Just like mom's recipes, made with love and care using traditional cooking methods</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">🔥</div>
+                    <h3>Fresh Daily Prep</h3>
+                    <p>All meals prepared fresh every morning, never reheated or preserved</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">🥗</div>
+                    <h3>Healthy Ingredients</h3>
+                    <p>Organic vegetables, pure spices, and quality ingredients for nutritious meals</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">⏰</div>
+                    <h3>Timely Delivery</h3>
+                    <p>Hot meals delivered right on time, every time with our reliable delivery network</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">💰</div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Best value for money with no hidden charges - transparent pricing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">🌶️</div>
+                    <h3>Custom Spice Levels</h3>
+                    <p>Mild, medium, or spicy - exactly how you like it, tailored to your taste</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your journey with fresh, home-cooked meals?</p>
+            </div>
+            <div class="contact__content">
+                <div class="contact__info">
+                    <div class="contact__item">
+                        <div class="contact__icon">📞</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 98765 43210</p>
+                            <small>Call or WhatsApp anytime</small>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <div class="contact__icon">✉️</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>orders@rotibox.com</p>
+                            <small>We'll respond within 2 hours</small>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <div class="contact__icon">📍</div>
+                        <div>
+                            <h3>Delivery Areas</h3>
+                            <p>Entire city coverage</p>
+                            <small>Express delivery available</small>
+                        </div>
+                    </div>
+                    <div class="contact__item">
+                        <div class="contact__icon">🕒</div>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>7:00 AM - 10:00 PM</p>
+                            <small>Monday to Sunday</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact__form">
+                    <h3>Send us a message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Name *</label>
+                            <input type="text" id="name" class="form-control" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email *</label>
+                            <input type="email" id="email" class="form-control" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone *</label>
+                            <input type="tel" id="phone" class="form-control" required placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="service">Interested Service</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a service</option>
+                                <option value="daily">Daily Lunch</option>
+                                <option value="weekly">Weekly Plan</option>
+                                <option value="monthly">Monthly Plan</option>
+                                <option value="corporate">Corporate Catering</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message *</label>
+                            <textarea id="message" class="form-control" rows="4" required placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <div class="logo-placeholder">🍱</div>
+                        <h3>Roti Box</h3>
+                    </div>
+                    <p>Ghar Jaisa Khana, Delivered Fresh Daily</p>
+                    <p>Making homemade meals accessible to everyone, everywhere.</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li>Daily Tiffin Service</li>
+                            <li>Corporate Catering</li>
+                            <li>Weekly Plans</li>
+                            <li>Monthly Plans</li>
+                            <li>Custom Diet Plans</li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li>📞 +91 98765 43210</li>
+                            <li>✉️ orders@rotibox.com</li>
+                            <li>📱 WhatsApp Orders</li>
+                            <li>📍 Citywide Delivery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Roti Box. All rights reserved. | Made with ❤️ for food lovers</p>
+                <div class="footer__social">
+                    <span>Follow us:</span>
+                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Order Button for Mobile -->
+    <div class="floating-order-btn">
+        <button class="btn btn--primary" onclick="orderNow()">
+            📱 Order Now
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
