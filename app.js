@@ -415,7 +415,7 @@ function handleContactFormSubmit() {
                 const confirmed = confirm('Would you like to also send this inquiry via WhatsApp for faster response?');
                 if (confirmed) {
                     const message = `Hi Roti Box! New inquiry from: ${formData.get('name')}\nEmail: ${formData.get('email')}\nPhone: ${formData.get('phone')}\nService: ${formData.get('service') || 'Not specified'}\nMessage: ${formData.get('message')}`;
-                    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+                    const whatsappUrl = `https://wa.me/919456716183?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, '_blank');
                 }
             }, 2000);
@@ -645,18 +645,18 @@ function callNow() {
         const options = confirm('Choose your preferred contact method:\n\nOK - Make a phone call\nCancel - Send WhatsApp message');
         
         if (options) {
-            window.location.href = 'tel:+919876543210';
+            window.location.href = 'tel:+919456716183';
             trackEvent('Contact', 'Phone Call');
         } else {
             const message = 'Hi Roti Box! I am interested in your tiffin services. Please provide more details about your plans and pricing.';
-            const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://wa.me/919456716183?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
             trackEvent('Contact', 'WhatsApp Message');
         }
     } else {
         // Desktop behavior - open WhatsApp
         const message = 'Hi Roti Box! I am interested in your tiffin services. Please provide more details about your plans and pricing.';
-        const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/919456716183?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
         trackEvent('Contact', 'WhatsApp Desktop');
     }
